@@ -102,7 +102,7 @@ const TaskForm: React.FC<{
   value,
   onChange,
   placeholder,
-  buttonText,
+
   inputRef,
   secondaryButtonText,
   onSecondaryButtonClick
@@ -112,12 +112,7 @@ const TaskForm: React.FC<{
     onSubmit(e);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && value.trim()) {
-      e.preventDefault();
-      onSubmit(e as any);
-    }
-  };
+  
 
   return (
     <div className="task-form">
@@ -127,7 +122,7 @@ const TaskForm: React.FC<{
           type="text"
           value={value}
           onChange={onChange}
-          onKeyPress={handleKeyPress}
+          
           placeholder={placeholder}
           className="task-input"
         />
@@ -299,7 +294,7 @@ const App: React.FC = () => {
 
   return (
     <div className={`app ${darkMode ? 'dark' : 'light'}`}>
-      <style jsx>{`
+      <style >{`
         * {
           margin: 0;
           padding: 0;
@@ -636,7 +631,7 @@ const App: React.FC = () => {
           onChange={taskInput.onChange}
           placeholder={isEditing ? 'Edit task...' : 'Create a new todo...'}
           buttonText={isEditing ? 'Update' : 'Add'}
-          inputRef={isEditing ? editInput : taskInput.ref}
+
           secondaryButtonText={isEditing ? 'Cancel' : undefined}
           onSecondaryButtonClick={isEditing ? cancelEdit : undefined}
         />
